@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+		<title>Задача 1</title>
+		<link rel="stylesheet" href="../css/style.css"/>
+	</head>
+	<body>
+		<a href = "../index.html">Главная</a>
+		<a href = "task2.html">Следующая задача</a>
+		<h1>Задача 1</h1>
+		<p>Написать регулярное выражение, которое проверят строки на соответствие: «a», «aaaaaa», «a aa a» (т.е. проверяемые строки должны состоять из символа «a»). Примечание: используйте метод test().</p>
+		<label for="input">
+			<span>Введите Вашу строку:</span>
+			<input type="text" id="input">
+		</label>
+		<button id="check">Проверить</button>
+		<h2>Решение</h2>
+		<h3>Используемое регулярное выражение:</h3>
+		<pre>^[a+\s]+$</pre>
+		<h3>Код для решения задачи:</h3>
+		<pre>
+// Проверка соответствия введенной строки шаблону
+// @param string (string) - введенная строка
+// @param template (object) - регулярное выражение-шаблон
+				
+function checkStringForTemplate (string, template) {
+	return template.test(string);
+}
+
+//Инициализация функции на клике по кнопке "Проверить"
+document.getElementById('check').onclick = function() {
+	alert(checkStringForTemplate(document.getElementById('input').value, /^[a+\s]+$/));
+};
+		</pre>
+	<script src="../js/task1.js"></script>
+	</body>
+</html>
