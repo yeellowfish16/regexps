@@ -16,8 +16,8 @@
 		<label for="input">
 			<span>Введите Вашу строку:</span>
 			<input type="text" id="input" pattern="^[\w]{5,}$" required/>
-			<button class="check" id="check">Проверить</button>
 		</label>
+		<button class="check" id="check">Проверить</button>
 		<h2>Решение</h2>
 		<h3>Используемое регулярное выражение:</h3>
 		<pre>^[\wа-яА-Я]{5,}$</pre>
@@ -30,7 +30,9 @@
 function checkStringForTemplate (string, template) {
 	return template.test(string);
 }
-				
+
+// Инициализация функции по клику на кнопку "Проверить"
+
 document.getElementById('check').onclick = function() {
 	alert(checkStringForTemplate(document.getElementById('input').value, /^[\wа-яА-Я]{5,}$/));
 };

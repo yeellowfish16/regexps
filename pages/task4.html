@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+		<title>Задача 4</title>
+		<link rel="stylesheet" href="../css/style.css"/>
+	</head>
+	<body>
+		<a href = "task3.html">Предыдущая задача</a>
+		<a href = "../index.html">Главная</a>
+		<a href = "task5.html">Следующая задача</a>
+		<h1>Задача 4</h1>
+		<p>Написать функцию, которая при помощи регулярных выражений разбивает текст на отдельные слова и находит частоту встречаемости отдельных слов.</p>
+		<label for="input">
+			<span>Введите Ваш текст:</span>
+			<textarea type="text" id="input"></textarea>
+		</label>
+		<button class="check" id="check">Проверить</button>
+		<div id="result"></div>
+		<h2>Решение</h2>
+		<h3>Используемое регулярное выражение:</h3>
+		<pre>/[а-яА-ЯёЁa-zA-Z]+/g</pre>
+		<h3>Код для решения задачи:</h3>
+		<pre>
+// Разбивам текст на слова и считаем количество каждого слова
+// @param text (string) - введенный текст
+			
+function countEveryWordInText(text) {
+	var regExp = /[а-яА-ЯёЁa-zA-Z]+/g,
+		countResult = {},
+		wordsArray = text.match(regExp);
+			
+	for (var i = 0; i < wordsArray.length; i++) {
+		var a = wordsArray[i];
+					
+		if (countResult[a] != undefined) {
+			++ countResult[a];
+		}
+					
+		else {
+			countResult[a] = 1;
+		}
+	}
+				
+	for (var word in countResult) {
+		var newElem = document.createElement('p');
+		newElem.innerHTML = 'Слово \"' + word + '\" встречается ' + countResult[word] + ' раз(а)';
+		document.getElementById('result').appendChild(newElem);
+	}
+	return;
+}
+	
+//Инициализируем функцию по клику на кнопку "Проверить"
+	
+document.getElementById('check').onclick = function() {
+	countEveryWordInText(document.getElementById('input').value);
+};
+		</pre>
+	<script src="../js/task4.js"></script>
+	</body>
+</html>
