@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+		<title>Задача 5</title>
+		<link rel="stylesheet" href="../css/style.css"/>
+	</head>
+	<body>
+		<a href = "task4.html">Предыдущая задача</a>
+		<a href = "../index.html">Главная</a>
+		<a href = "task6.html">Следующая задача</a>
+		<h1>Задача 5</h1>
+		<p>Дана строка с целыми числами <b>'a1b2c3'</b>. С помощью регулярки преобразуйте строку так, чтобы вместо этих чисел стояли их кубы.</p>
+		<label for="input">
+			<span>Введите Вашу строку:</span>
+			<input type="text" id="input"/>
+		</label>
+		<button class="check" id="check">Проверить</button>
+		<div id="result"></div>
+		<h2>Решение</h2>
+		<h3>Используемое регулярное выражение:</h3>
+		<pre>/\d+/g</pre>
+		<h3>Код для решения задачи:</h3>
+		<pre>
+//Возведение чисел в строке в степень
+// @param incomingString (string) - строка, числа в которой нужно возвести в степень
+// @param pow (number) - показатель степени
+				
+function replaceDigitsInStringToPow (incomingString, pow) {
+	var regExp = /\d+/g,
+		arr = incomingString.match(regExp),
+		resultString = '',
+		i = 0;
+					
+	return incomingString.replace(regExp, function () {
+		return String(Math.pow(Number(arr[i++]), pow));
+	});
+}
+
+//Инициализация функции по клику на кнопку "Проверить" и добавление блока с ответом перед решением
+
+document.getElementById('check').onclick = function() {
+	var newElem = document.createElement('p');
+	newElem.innerHTML = replaceDigitsInStringToPow(document.getElementById('input').value, 3);
+	document.getElementById('result').appendChild(newElem);
+};
+		</pre>
+	<script src="../js/task5.js"></script>
+	</body>
+</html>
