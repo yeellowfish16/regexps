@@ -46,7 +46,7 @@ input {
 	cursor: pointer;
 }
 
-.check {
+.check:hover {
 	background-color: #66CDCC;
 }
 
