@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+		<title>Задача 6</title>
+		<link rel="stylesheet" href="../css/style.css"/>
+	</head>
+	<body>
+		<a href = "task5.html">Предыдущая задача</a>
+		<a href = "../index.html">Главная</a>
+		<a href = "task7.html">Следующая задача</a>
+		<h1>Задача 6</h1>
+		<p>Дана строка, содержащая в себе URL страницы. Нужно вырезать из нее домен.</p>
+		<label for="input">
+			<span>Введите Вашу строку:</span>
+			<input type="text" id="input"/>
+		</label>
+		<button class="check" id="check">Проверить</button>
+		<div id="result"></div>
+		<h2>Решение</h2>
+		<h3>Используемое регулярное выражение:</h3>
+		<pre>/([w]{3}\.)?([a-z0-9-_]{1,}\.)?[a-z0-9-_]{1,}\.[a-z]{2,6}/g</pre>
+		<h3>Код для решения задачи:</h3>
+		<pre>
+//Вырезание подстроки по заданному шаблону из введенной строки
+// @param incomingString (string) - строка, числа в которой нужно возвести в степень
+// @param template (object) - шаблон
+				
+function cutString (incomingString, template) {
+	var arr = incomingString.match(template);
+	
+	return String(arr[0]);
+}
+
+//Инициализация функции по клику на кнопку "Проверить"
+document.getElementById('check').onclick = function() {
+	var newElem = document.createElement('p');
+
+	newElem.innerHTML = cutString(document.getElementById('input').value, /([w]{3}\.)?([a-z0-9-_]{1,}\.)?[a-z0-9-_]{1,}\.[a-z]{2,6}/g);
+	document.getElementById('result').appendChild(newElem);
+}
+		</pre>
+	<script src="../js/task6.js"></script>
+	</body>
+</html>

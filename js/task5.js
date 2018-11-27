@@ -5,7 +5,6 @@
 function replaceDigitsInStringToPow (incomingString, pow) {
 	var regExp = /\d+/g,
 		arr = incomingString.match(regExp),
-		resultString = '',
 		i = 0;
 	
 	return incomingString.replace(regExp, function () {
