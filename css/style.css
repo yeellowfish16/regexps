@@ -1,4 +1,6 @@
 body {
+	color: #252333;
+	background-color: rgb(255, 247, 233);
 	max-width: 1280px;
 	margin: 0 auto;
 	padding-top: 25px;
@@ -16,6 +18,16 @@ ol {
 
 li {
 	padding: 10px 0;
+	padding-right: 50px;
+}
+
+a {
+	color: #252333;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #66CDCC;
 }
 
 textarea {
@@ -60,4 +72,9 @@ pre {
 	font-size: 14px;
 	line-height: 25px;
 	margin-bottom: 15px;
+}
+
+.links {
+	display: flex;
+	justify-content: space-between;
 }
