@@ -21,7 +21,7 @@
 		<div id="result"></div>
 		<h2>Решение</h2>
 		<h3>Используемое регулярное выражение:</h3>
-		<pre>/([w]{3}\.)?([a-z0-9-_]{1,}\.)?[a-z0-9-_]{1,}\.[a-z]{2,6}/g</pre>
+		<pre>/([w]{3}\.)?([a-z0-9-_]{1,}\.){0,}[a-z0-9-_]{1,}\.[a-z]{2,6}/ig</pre>
 		<h3>Код для решения задачи:</h3>
 		<pre>
 //Вырезание подстроки по заданному шаблону из введенной строки
@@ -31,7 +31,7 @@
 function cutString (incomingString, template) {
 	var arr = incomingString.match(template);
 	
-	return String(arr[0]);
+	return String(arr[0]).toLowerCase();
 }
 
 //Инициализация функции по клику на кнопку "Проверить"

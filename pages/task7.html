@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+		<title>Задача 7</title>
+		<link rel="stylesheet" href="../css/style.css"/>
+	</head>
+	<body>
+		<a href = "task6.html">Предыдущая задача</a>
+		<a href = "../index.html">Главная</a>
+		<a href = "task8.html">Следующая задача</a>
+		<h1>Задача 7</h1>
+		<p>Определить четные числа. Отрицательные числа, дроби, ноль, а также строки, содержащие не цифры - игнорировать. Регулярное выражение должно быть универсальным.</p>
+		<p><i>P.S.: для удобства проверки можешь использовать строку <b>"a0b1c2d3e4f06g10h112i10.7j10,8k-88"</b>. В ней есть и ноль, и положительные четные, и положительные нечетные, и дробные, и отрицательные числа. Но можешь придумать и свою :)</i></p>
+		<label for="input">
+			<span>Введите Вашу строку:</span>
+			<input type="text" id="input"/>
+		</label>
+		<button class="check" id="check">Проверить</button>
+		<div id="result"></div>
+		<h2>Решение</h2>
+		<h3>Используемое регулярное выражение:</h3>
+		<pre>/(?&lt;![-\d])(?&lt;!\d[.,])(?!0)(\d*[24680])(?![.,]?\d)/g</pre>
+		<h3>Код для решения задачи:</h3>
+		<pre>
+//Поиск целых положительных чисел, неравных нулю
+// @param incomingString (string) - строка, из которой нужно вырезать числа
+			
+function findEvenPositiveNumbers (incomingString) {
+	var arr = incomingString.match(/(?&lt;![-\d])(?&lt;!\d[.,])(?!0)(\d*[24680])(?![.,]?\d)/g);
+	return String(arr);
+}
+
+//Инициализация функции по клику на кнопку "Проверить"
+
+document.getElementById('check').onclick = function() {
+	var newElem = document.createElement('p');
+	newElem.innerHTML = findEvenPositiveNumbers(document.getElementById('input').value);
+	document.getElementById('result').appendChild(newElem);
+}
+		</pre>
+	<script src="../js/task7.js"></script>
+	</body>
+</html>
